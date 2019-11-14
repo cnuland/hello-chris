@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: hello-chris
+  name: hello-chris-build
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: hello-chris:latest
+  resources: {}
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    dockerStrategy:
+      noCache: true
+    type: Docker
