@@ -1,0 +1,18 @@
+apiVersion: build.openshift.io/v1 
+kind: BuildConfig 
+metadata: 
+    name: hello-chris-pipeline 
+spec: 
+    nodeSelector: null 
+    output: {} 
+    postCommit: {} 
+    resources: {} 
+    runPolicy: Serial 
+    source: 
+        git: 
+            uri: 'https://github.com/cnuland/hello-chris' 
+        type: Git 
+    strategy: 
+        jenkinsPipelineStrategy: 
+            jenkinsfilePath: Jenkinsfile 
+        type: JenkinsPipeline triggers: []
