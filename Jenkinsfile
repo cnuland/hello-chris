@@ -29,7 +29,6 @@ pipeline {
           ls
           pwd
           cp ./* ./oc-build
-          ls ./oc-build
         """
         binaryBuild(projectName: env.BUILD, buildConfigName: env.BUILD_CONFIG, buildFromPath: "oc-build")
       }
