@@ -28,7 +28,7 @@ pipeline {
           mkdir oc-build
           ls
           pwd
-          cp ./* ./oc-build
+          cp ./* ./oc-build 2>/dev/null || :
         """
         binaryBuild(projectName: env.BUILD, buildConfigName: env.BUILD_CONFIG, buildFromPath: "oc-build")
       }
