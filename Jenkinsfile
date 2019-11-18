@@ -19,15 +19,6 @@ pipeline {
     label 'nodejs'
   }
 
-  stages {
-    stage('Git Checkout') {
-      steps {
-        // Turn off Git's SSL cert check, uncomment if needed
-        // sh 'git config --global http.sslVerify false'
-        git url: "${APPLICATION_SOURCE_REPO}", branch: "${APPLICATION_SOURCE_REF}"
-      }
-    }
-
     stage('Build Container Image'){
       steps {
         // Copy the resulting artifacts into common directory
@@ -39,4 +30,3 @@ pipeline {
       }
     }
   }
-}
