@@ -19,6 +19,8 @@ pipeline {
     label 'nodejs'
   }
 
+  stages {
+
     stage('Build Container Image'){
       steps {
         // Copy the resulting artifacts into common directory
