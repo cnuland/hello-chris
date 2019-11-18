@@ -28,9 +28,8 @@ pipeline {
           mkdir oc-build
           ls
           pwd
-          cp -a . ./oc-build 2> /dev/null || echo "No \$t files"
+          cp -a . ./oc-build
           ls ./oc-build
-
         """
         binaryBuild(projectName: env.BUILD, buildConfigName: env.BUILD_CONFIG, buildFromPath: "oc-build")
       }
