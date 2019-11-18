@@ -1,0 +1,18 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    application: centos-7-node10
+  name: centos-7-node10
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: 'centos/nodejs-10-centos7:latest'
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Source
