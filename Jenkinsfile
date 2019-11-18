@@ -11,6 +11,7 @@ openshift.withCluster() {
   env.APP_NAME = "${JOB_NAME}".replaceAll(/-build.*/, '')
   echo "Starting Pipeline for ${APP_NAME}..."
   env.BUILD = "${env.NAMESPACE}"
+  env.BUILD_CONFIG = "hello-chris-build"
 }
 
 pipeline {
@@ -34,7 +35,7 @@ pipeline {
           ls *
           cp -rfv ./* oc-build 2> /dev/null || echo "No \$t files"
         """
-        binaryBuild(projectName: env.BUILD, buildConfigName: env.APP_NAME, buildFromPath: "oc-build")
+        binaryBuild(projectName: env.BUILD, buildConfigName: env.BUILD_CONFIG, buildFromPath: "oc-build")
       }
     }
   }
