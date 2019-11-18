@@ -25,6 +25,7 @@ pipeline {
       steps {
         // Copy the resulting artifacts into common directory
         sh """
+          mkdir oc-build
           ls
           pwd
           cp -a . ./oc-build 2> /dev/null || echo "No \$t files"
