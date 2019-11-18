@@ -26,7 +26,7 @@ pipeline {
         // Copy the resulting artifacts into common directory
         sh """
           ls *
-          cp -rfv ./* oc-build 2> /dev/null || echo "No \$t files"
+          cp -rfv * oc-build 2> /dev/null || echo "No \$t files"
         """
         binaryBuild(projectName: env.BUILD, buildConfigName: env.BUILD_CONFIG, buildFromPath: "oc-build")
       }
